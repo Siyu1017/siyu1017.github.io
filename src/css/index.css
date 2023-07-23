@@ -14,10 +14,14 @@ body::selection, body *::selection {
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
-    padding: 3rem 0 2rem;
+    padding: 3rem 1rem 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: calc(100% - 2rem);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .title {
@@ -29,6 +33,10 @@ body::selection, body *::selection {
     width: fit-content;
     font-size: 1.5rem;
     font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .repositories {
@@ -57,6 +65,10 @@ body::selection, body *::selection {
 
     .part {
         width: calc(100% - 2rem);
+    }
+
+    .part-title {
+        margin: 1rem 0 2rem 1rem;
     }
 }
 
