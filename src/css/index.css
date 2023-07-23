@@ -1,8 +1,23 @@
+* {
+    transition: all .05s ease-in-out;
+    font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+}
+
+html {
+    background-image: radial-gradient(circle at top right, rgba(121, 68, 154, .13), transparent), radial-gradient(circle at 20% 80%, rgba(41, 196, 255, .13), transparent);
+    overflow-x: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 body {
     margin: 0;
     width: 100vw;
     height: 100vh;
     background-image: radial-gradient(circle at top right, rgba(121, 68, 154, .13), transparent), radial-gradient(circle at 20% 80%, rgba(41, 196, 255, .13), transparent);
+    overflow-x: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 body::selection, body *::selection {
@@ -48,11 +63,11 @@ body::selection, body *::selection {
 .part {
     text-align: center;
     width: 400px;
-    margin: 0 auto;
+    margin: 0 auto 1.5rem;
 }
 
 .part-title {
-    margin: 1rem 0 2rem;
+    margin: 1rem 0;
     font-weight: 800;
     font-size: 1.5rem;
     text-align: left;
@@ -101,6 +116,10 @@ body::selection, body *::selection {
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
+}
+
+.item {
+    margin: .25rem auto;
 }
 
 ::-webkit-scrollbar {
