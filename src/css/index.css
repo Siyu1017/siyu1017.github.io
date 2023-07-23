@@ -14,7 +14,7 @@ body::selection, body *::selection {
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
-    padding: 3rem 4rem 2rem;
+    padding: 3rem 0 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,6 +48,16 @@ body::selection, body *::selection {
     font-weight: 800;
     font-size: 1.5rem;
     text-align: left;
+}
+
+@media screen and (max-width: 432px) {
+    .repository {
+        width: 100%;
+    }
+
+    .part {
+        width: calc(100% - 2rem);
+    }
 }
 
 @media screen and (min-width: 954px) {
