@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+}
+
+body::selection, body *::selection {
+    background-color: rgba(177, 217, 255, 0.8);
+}
+
+.header {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    -webkit-text-fill-color: #0000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient( to right, #b846ff 0, #b823e0 20%, #ff03c3 70%, #ff20c1 100% );
+    font-weight: 800;
+    width: fit-content;
+    font-size: 1.5rem;
+    font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+}
