@@ -93,7 +93,7 @@
                 StyleViewer.getAllStyle(document.body).forEach(s => {
                     var temp = "";
                     s.content.forEach(j => {
-                        temp += `<div style='text-indent: 1rem;font-family: monospace;'><span style='text-indent: 1rem;color: #c80000; font-family: monospace;'>${j.name}</span>: ${j.value};</div>`
+                        temp += `<div style='text-indent: 1rem;'><span style='text-indent: 1rem;color: #c80000;'>${j.name}</span>: ${j.value};</div>`
                     })
                     document.getElementById('demo1').innerHTML += `<div class="style-group"><div style="${s.selector == "element.style" ? "color: rgb(137 137 137);" : ""}">${s.selector} {</div>${temp}<div>}</div></div>`;
                 });
@@ -102,14 +102,14 @@
             document.getElementById("gsba").addEventListener("click", function () {
                 document.getElementById('demo2').innerHTML = ''
                 StyleViewer.getStylesByArray(document.body, ['width', 'height']).forEach(s => {
-                    document.getElementById('demo2').innerHTML += `<div style='font-family: monospace;'><span style='color: #c80000; font-family: monospace;'>${s.name}</span>: ${s.value};</div>`;
+                    document.getElementById('demo2').innerHTML += `<div><span style='color: #c80000; '>${s.name}</span>: ${s.value};</div>`;
                 })
             })
 
             document.getElementById("gsbs").addEventListener("click", function () {
                 document.getElementById('demo3').innerHTML = '';
                 StyleViewer.getStylesByString(document.body, 'width height').forEach(s => {
-                    document.getElementById('demo3').innerHTML += `<div style='font-family: monospace;'><span style='color: #c80000; font-family: monospace;'>${s.name}</span>: ${s.value};</div>`;
+                    document.getElementById('demo3').innerHTML += `<div><span style='color: #c80000; '>${s.name}</span>: ${s.value};</div>`;
                 })
             })
         }

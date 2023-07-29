@@ -79,7 +79,7 @@ a {
     display: block;
     color: #24292f;
     margin-bottom: 1rem;
-    font-family: monospace;
+    font-family: consolas, "lucida console", "courier new", monospace;
 }
 
 .p-code::selection,.p-code *::selection {
@@ -87,7 +87,7 @@ a {
 }
 
 code * {
-    font-family: monospace;
+    font-family: consolas, "lucida console", "courier new", monospace;
 }
 
 .ipt {
@@ -95,7 +95,7 @@ code * {
     border-radius: 4px;
     padding: .5rem;
     outline: none;
-    font-family: monospace;
+    font-family: consolas, "lucida console", "courier new", monospace;
     margin: 0 .5rem;
 }
 
