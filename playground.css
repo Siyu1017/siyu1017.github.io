@@ -39,6 +39,9 @@ a {
 .playground {
     height: calc(100vh - 72px);
     display: flex;
+    position: absolute;
+    top: 72px;
+    width: 100%;
 }
 
 .plllllllllllllllllllllllll {

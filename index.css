@@ -70,7 +70,7 @@ code {
     background: #fff;
     height: 100%;
     max-width: 768px;
-    margin: 0 auto;
+    margin: 104px auto 0;
 }
 
 .group:last-child {
@@ -115,6 +115,7 @@ code *::selection, code::selection {
     position: fixed;
     left: 0;
     right: 0;
+    top: 0;
     bottom: auto;
     padding: 1rem 2rem;
     background: #fff;
