@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    height: 100vh;
+    /*background: #F5F5F5;*/
+}
+
+.header {
+    margin: 0 2rem 1.5rem;
+    padding: 2rem 0 0 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+*:not(code) {
+    font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+}
+
+.usage {
+    margin: 0 2rem;
+}
+
+.title {
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 16px;
+    border-bottom: 1px solid hsla(210, 18%, 87%, 1);
+}
+
+.group-title {
+    font-size: 1.25em;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+code {
+    border-radius: 6px;
+    padding: 16px;
+    background: #f6f8fa;
+    width: -webkit-fill-available;
+    display: block;
+    color: #24292f;
+    margin-bottom: 1rem;
+}
+
+.right-button {
+    margin: 0 0 0 auto;
+    position: sticky;
+    right: 0;
+    font-weight: normal;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    outline: none;
+    background: #0d6efd;
+    color: #fff;
+    cursor: pointer;
+}
+
+.right-button:hover {
+    background-color: #0b5ed7;
+}
+
+.content {
+    width: 100%;
+    background: #fff;
+    height: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.group:last-child {
+    padding-bottom: 4rem;
+}
+
+.group-content div:not(code *) {
+    margin-bottom: 1rem;
+}
+
+code * {
+    font-family: consolas, "lucida console", "courier new", monospace;
+}
+
+.style-group + .style-group::before {
+    border: solid #c7c7c7;
+    border-width: 1px 0 0 0;
+    margin: 6px 0;
+    content: '';
+    display: block;
+}
+
+.group-title > span:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+code *::selection, code::selection {
+    background: rgba(177, 217, 255, 0.8);
+}
+
+.group-title, .title, .header, .nav * {
+    user-select: none;
+}
+
+.noselect {
+    user-select: none;
+}
+
+.nav {
+    position: sticky;
+    top: 0;
+    bottom: auto;
+    padding: 1rem 2rem;
+    background: #fff;
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    margin-bottom: 2rem;
+    z-index: 9;
+    box-shadow: 0 3px 2px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .06);
+}
+
+.headerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr {
+    font-size: 2rem;
+}
+
+.playground {
+    text-decoration: none;
+    color: #fff;
+    font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.plllllllllllllllllllllllll {
+    margin: 0 0 0 auto;
+    border: solid 1px transparent;
+    padding: .5rem;
+    background-image: linear-gradient( to right top, #b846ffdd 0, #b823e0dd 20%, #ff03c3dd 70%, #ff20c1dd 100% );
+    border-radius: 4px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}

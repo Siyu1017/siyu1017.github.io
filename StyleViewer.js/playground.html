@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playgroung - StyleViewer.js</title>
+    <link rel="stylesheet" href="./playground.css">
+    <link rel="stylesheet" href="./StyleViewer.min.css">
+    <script src="./StyleViewer.min.js"></script>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="/StyleViewer.js/" class="headerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr">StyleViewer.js</a>
+        <div class="plllllllllllllllllllllllll" id="run">Run</div>
+    </div>
+    <div class="playground">
+        <div class="input">
+            <div class="ipt-group">
+                目標選擇器 : <input type="text" id="target" value="body" class="ipt"> 或 <div class="btn"
+                    style="width: fit-content;" id="view">直接檢視元素樣式</div>
+            </div>
+            <div class="ipt-group">
+                欲取得的樣式 ( 以空格隔開 ) : <input type="text" id="attrs" value="width height" class="ipt">
+            </div>
+        </div>
+        <div class="output">
+            <div class="title">結果</div>
+            <div id="res"></div>
+        </div>
+    </div>
+    <script>
+        StyleViewer.init(document.body);
+
+        document.getElementById("run").addEventListener("click", function () {
+            document.getElementById('res').innerHTML = '';
+            var res_temp = "";
+            StyleViewer.getAllStyle(document.querySelector(document.getElementById("target").value)).forEach(s => {
+                var temp = "";
+                s.content.forEach(j => {
+                    temp += `<div style='text-indent: 1rem;'><span style='text-indent: 1rem;color: #c80000;'>${j.name}</span>: ${j.value};</div>`
+                })
+                res_temp += `<div class="style-group"><div style="${s.selector == "element.style" ? "color: rgb(137 137 137);" : ""}">${s.selector} {</div>${temp}<div>}</div></div>`;
+            });
+            res_temp = `<div class="h2">選擇器 ${document.getElementById("target").value} 的所有樣式</div><code class="p-code">${res_temp}</code>`;
+            var res_temp_1 = "";
+            StyleViewer.getStylesByString(document.querySelector(document.getElementById("target").value), document.getElementById("attrs").value).forEach(s => {
+                res_temp_1 += `<div><span style='color: #c80000;'>${s.name}</span>: ${s.value};</div>`;
+            });
+            res_temp += `<div class="h2">選擇器 ${document.getElementById("target").value} 的樣式</div><code class="p-code">${res_temp_1}</code>`;
+            document.getElementById('res').innerHTML = res_temp;
+        })
+
+        document.getElementById("view").addEventListener("click", function () {
+            StyleViewer.selecting == true ? StyleViewer.exitSelectingMode() : StyleViewer.enterSelectingMode();
+        })
+    </script>
+</body>
+
+</html>
