@@ -81,7 +81,7 @@ code {
     margin-bottom: 1rem;
 }
 
-code * {
+code *, code {
     font-family: consolas, "lucida console", "courier new", monospace;
 }
 
