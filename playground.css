@@ -122,6 +122,7 @@ code * {
 
 .output {
     padding-bottom: 3rem;
+    height: fit-content;
 }
 
 .title {
