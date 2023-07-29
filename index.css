@@ -82,7 +82,7 @@ code {
 }
 
 code *, code {
-    font-family: consolas, "lucida console", "courier new", monospace;
+    font-family: monospace;
 }
 
 .style-group + .style-group::before {
