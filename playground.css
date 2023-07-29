@@ -119,6 +119,10 @@ code * {
     height: fit-content;
 }
 
+.output {
+    margin-bottom: 3rem;
+}
+
 .title {
     padding: 2rem 1.5rem 0;
     font-size: 1.5rem;
