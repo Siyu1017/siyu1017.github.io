@@ -2,16 +2,9 @@
 
 👋 我的個人網頁
 
-## 項目
-
-- Time.js ( https://github.com/Siyu1017/Time.js ) <br>
-一個輕量且簡單的 JavaScript 庫，用於計算日期與時間
-- Regex.js ( https://github.com/Siyu1017/Regex.js ) <br>
-一個方便的判別式庫
-- StyleViewer.js ( https://github.com/Siyu1017/StyleViewer.js ) <br>
-用於檢視元素樣式的 JavaScript 庫
-
-## 未來
-
-- Dragger.js <br>
-用於拖動 HTML 元素的 JavaScript 庫
+## 專案
+- [PaGamO Plug-in](https://siyu1017.github.io/pagamo-ext/) — 一款用於提升 PaGamO 使用體驗的外掛程式，可以幫助你提高答題效率，並提供自定義客戶端功能
+- [JSON Viewer](https://siyu1017.github.io/json-viewer/) — 類似於 DevTool 的 json 檢視器
+- [StyleViewer.js](https://siyu1017.github.io/StyleViewer.js) — 查找網頁中元素的樣式
+- [Youtube Downloader](https://ytdler.vercel.app) — 透過 Youtube 連結免費且無廣告下載影片
+- [WebOS](https://siyu1017.github.io/WebOS/) — 網頁版 Windows11
