@@ -383,7 +383,7 @@ body *::selection {
     width: 180px;
     border-radius: 12px;
     height: -webkit-fill-available;
-    background-image: url(./icons/android-chrome-512x512.png);
+    background-image: url(./icons/original.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

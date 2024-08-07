@@ -9,7 +9,7 @@ self.addEventListener('install', (event) => {
                 './index.html',
                 './index.js',
                 './index.css',
-                "./icons/android-chrome-512x512.png",
+                "./icons/original.png",
                 './favicon.ico'
             ])
         })()

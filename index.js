@@ -164,7 +164,7 @@ var currentShow = 'home';
 var profile = {
     "基本資料": {
         "概括": {
-            "頭像": "./icons/android-chrome-512x512.png",
+            "頭像": "./icons/original.png",
             "暱稱": "Siyu1017"
         },
         "詳細": {
