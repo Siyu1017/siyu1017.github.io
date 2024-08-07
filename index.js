@@ -118,6 +118,52 @@ function randomString(length) {
     render();
 })();
 
+(() => {
+    var canvas = document.createElement("canvas");
+    var ctx = canvas.getContext('2d');
+    var existTime = 750;
+    var pointSize = 100;
+    var points = [];
+    canvas.className = "click-respond-canvas";
+    document.body.appendChild(canvas);
+
+    canvasClarifier(canvas, ctx);
+
+    window.addEventListener("click", (e) => {
+        points.push({ x: e.pageX, y: e.pageY, time: Date.now() });
+    })
+
+    function getPercent(value, all) {
+        var percent = value / all;
+        if (percent > 1) {
+            percent = 1;
+        }
+        return percent;
+    }
+
+    function render() {
+        canvasClarifier(canvas, ctx);
+
+        points.forEach((point, i) => {
+            var percent = getPercent(Date.now() - point.time, existTime);
+            ctx.save();
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(255,255,255,${(1 - percent) * .5})`;
+            ctx.arc(point.x, point.y, percent * pointSize / 2, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+            if (percent == 1) {
+                points.splice(i, 1);
+            }
+        })
+
+        requestAnimationFrame(render);
+    }
+
+    // render();
+})();
+
 function getAge() {
     var now = new Date();
     var year = now.getFullYear();
