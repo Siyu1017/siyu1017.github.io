@@ -3,43 +3,294 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Siyu1017</title>
-    <link rel="stylesheet" href="./src/css/index.css">
-    <link rel="icon" href="https://avatars.githubusercontent.com/Siyu1017">
+    <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="icon" href="./favicon.ico">
+    <link rel="stylesheet" href="https://siyu1017.github.io/json-viewer/viewer.css">
+    <script src="https://siyu1017.github.io/json-viewer/viewer.js"></script>
+    <meta name="theme-color" content="rgb(17,17,17)" />
 </head>
 
 <body>
-    <header class="header">
-        <div class="title">Siyu1017 的個人網站</div>
-    </header>
-    <div class="part">
-        <div class="part-title">存儲庫</div>
-        <div class="repositories">
-            <a href="https://github.com/Siyu1017/Time.js" target="_blank">
-                <img class="repository"
-                    src="https://github-readme-stats.vercel.app/api/pin/?username=Siyu1017&repo=Time.js">
-            </a>
-            <a href="https://github.com/Siyu1017/Regex.js" target="_blank">
-                <img class="repository"
-                    src="https://github-readme-stats.vercel.app/api/pin/?username=Siyu1017&repo=Regex.js">
-            </a>
-            <a href="https://github.com/Siyu1017/StyleViewer.js" target="_blank">
-                <img class="repository"
-                    src="https://github-readme-stats.vercel.app/api/pin/?username=Siyu1017&repo=StyleViewer.js">
-            </a>
+    <div class="container" id="container">
+        <canvas id="background"></canvas>
+        <div class="navbar">
+            <div class="navbar-left">
+                <div class="navbar-icon">
+                    <img src="./favicon.ico" alt="Siyu1017" class="navbar-icon-image">
+                </div>
+                <a class="navbar-title" href="#home" data-item="home">Siyu1017</a>
+            </div>
+            <div class="navbar-right">
+                <div class="navbar-items">
+                    <a class="navbar-item" href="#profile" data-item="profile">關於我</a>
+                    <a class="navbar-item" href="#project" data-item="project">我的項目</a>
+                </div>
+                <a class="navbar-github" target="_blank" href="https://github.com/Siyu1017/siyu1017.github.io">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                </a>
+                <div class="navbar-fold" id="toggleMenu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="navbar-fold-icon">
+                        <line x1="4" x2="20" y1="12" y2="12" />
+                        <line x1="4" x2="20" y1="6" y2="6" />
+                        <line x1="4" x2="20" y1="18" y2="18" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="navbar-close-icon">
+                        <path d="M18 6 6 18" />
+                        <path d="m6 6 12 12" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="notification-container">
+                <div class="notification" data-element="notification">
+                    <div class="notification-content"></div>
+                </div>
+            </div>
+            <div class="menu">
+                <a class="menu-item" href="#profile" data-item="profile">關於我</a>
+                <a class="menu-item" href="#project" data-item="project">我的項目</a>
+            </div>
+            <div class="scroll-content" data-element="content">
+                <div class="group" data-section="home">
+                    <h1 class="header-title">Siyu1017</h1>
+                    <p class="header-description">👋 哈囉！我是一個 <span data-element="age"></span> 歲的前端開發人員</p>
+                </div>
+                <div class="profile modern" data-section="profile">
+                    <div class="profile-content" data-theme="modern">
+                        <div class="profile-basic">
+                            <div class="profile-summary">
+                                <div class="profile-avatar"></div>
+                                <div class="profile-nickname">Siyu1017</div>
+                                <div class="profile-theme-toggle" data-element="toggleTheme" data-tooltip="換個方式 !">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-arrow-right-left">
+                                        <path d="m16 3 4 4-4 4" />
+                                        <path d="M20 7H4" />
+                                        <path d="m8 21-4-4 4-4" />
+                                        <path d="M4 17h16" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="profile-details">
+                                <div class="profile-title">關於我</div>
+                                <div class="profile-item">
+                                    <div class="profile-tag">性別:</div>
+                                    <div class="profile-value">男性</div>
+                                </div>
+                                <div class="profile-item">
+                                    <div class="profile-tag">年齡:</div>
+                                    <div class="profile-value"><span data-element="age"></span></div>
+                                </div>
+                                <div class="profile-item">
+                                    <div class="profile-tag">學校:</div>
+                                    <div class="profile-value">高雄中學</div>
+                                </div>
+                                <div class="profile-item">
+                                    <div class="profile-tag">生日:</div>
+                                    <div class="profile-value">2008/10/17</div>
+                                </div>
+                                <div class="profile-item">
+                                    <div class="profile-tag">電子郵件:</div>
+                                    <a class="profile-value" href="mailto:siyu971017@gmail.com">siyu971017@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-socials">
+                            <a class="profile-social" target="_blank" href="https://line.me/ti/p/OjY6DfpK5w"
+                                data-tooltip="siyu.1017">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-line" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0c4.411 0 8 2.912 8 6.492 0 1.433-.555 2.723-1.715 3.994-1.678 1.932-5.431 4.285-6.285 4.645-.83.35-.734-.197-.696-.413l.003-.018.114-.685c.027-.204.055-.521-.026-.723-.09-.223-.444-.339-.704-.395C2.846 12.39 0 9.701 0 6.492 0 2.912 3.59 0 8 0M5.022 7.686H3.497V4.918a.156.156 0 0 0-.155-.156H2.78a.156.156 0 0 0-.156.156v3.486c0 .041.017.08.044.107v.001l.002.002.002.002a.15.15 0 0 0 .108.043h2.242c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157m.791-2.924a.156.156 0 0 0-.156.156v3.486c0 .086.07.155.156.155h.562c.086 0 .155-.07.155-.155V4.918a.156.156 0 0 0-.155-.156zm3.863 0a.156.156 0 0 0-.156.156v2.07L7.923 4.832l-.013-.015v-.001l-.01-.01-.003-.003-.011-.009h-.001L7.88 4.79l-.003-.002-.005-.003-.008-.005h-.002l-.003-.002-.01-.004-.004-.002-.01-.003h-.002l-.003-.001-.009-.002h-.006l-.003-.001h-.004l-.002-.001h-.574a.156.156 0 0 0-.156.155v3.486c0 .086.07.155.156.155h.56c.087 0 .157-.07.157-.155v-2.07l1.6 2.16a.2.2 0 0 0 .039.038l.001.001.01.006.004.002.008.004.007.003.005.002.01.003h.003a.2.2 0 0 0 .04.006h.56c.087 0 .157-.07.157-.155V4.918a.156.156 0 0 0-.156-.156zm3.815.717v-.56a.156.156 0 0 0-.155-.157h-2.242a.16.16 0 0 0-.108.044h-.001l-.001.002-.002.003a.16.16 0 0 0-.044.107v3.486c0 .041.017.08.044.107l.002.003.002.002a.16.16 0 0 0 .108.043h2.242c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157H11.81v-.589h1.525c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157H11.81v-.589h1.525c.086 0 .155-.07.155-.156Z" />
+                                </svg>
+                            </a>
+                            <a class="profile-social" target="_blank" href="https://www.instagram.com/siyu.1017/"
+                                data-tooltip="siyu.1017">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-instagram" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                                </svg>
+                            </a>
+                            <div class="profile-social" data-tooltip="siyu.1017" social-type="discord">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-discord" viewBox="0 0 16 16">
+                                    <path
+                                        d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612" />
+                                </svg>
+                            </div>
+                            <a class="profile-social" target="_blank" href="https://github.com/Siyu1017/"
+                                data-tooltip="Siyu1017">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-github" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                            <div class="profile-social" data-tooltip="siyu_971017" social-type="wechat">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-wechat" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.176 14.429c-2.665 0-4.826-1.8-4.826-4.018 0-2.22 2.159-4.02 4.824-4.02S16 8.191 16 10.411c0 1.21-.65 2.301-1.666 3.036a.32.32 0 0 0-.12.366l.218.81a.6.6 0 0 1 .029.117.166.166 0 0 1-.162.162.2.2 0 0 1-.092-.03l-1.057-.61a.5.5 0 0 0-.256-.074.5.5 0 0 0-.142.021 5.7 5.7 0 0 1-1.576.22M9.064 9.542a.647.647 0 1 0 .557-1 .645.645 0 0 0-.646.647.6.6 0 0 0 .09.353Zm3.232.001a.646.646 0 1 0 .546-1 .645.645 0 0 0-.644.644.63.63 0 0 0 .098.356" />
+                                    <path
+                                        d="M0 6.826c0 1.455.781 2.765 2.001 3.656a.385.385 0 0 1 .143.439l-.161.6-.1.373a.5.5 0 0 0-.032.14.19.19 0 0 0 .193.193q.06 0 .111-.029l1.268-.733a.6.6 0 0 1 .308-.088q.088 0 .171.025a6.8 6.8 0 0 0 1.625.26 4.5 4.5 0 0 1-.177-1.251c0-2.936 2.785-5.02 5.824-5.02l.15.002C10.587 3.429 8.392 2 5.796 2 2.596 2 0 4.16 0 6.826m4.632-1.555a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0m3.875 0a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0" />
+                                </svg>
+                            </div>
+                            <a class="profile-social" target="_blank" href="https://www.threads.net/@siyu.1017"
+                                data-tooltip="siyu.1017">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-threads" viewBox="0 0 16 16">
+                                    <path
+                                        d="M6.321 6.016c-.27-.18-1.166-.802-1.166-.802.756-1.081 1.753-1.502 3.132-1.502.975 0 1.803.327 2.394.948s.928 1.509 1.005 2.644q.492.207.905.484c1.109.745 1.719 1.86 1.719 3.137 0 2.716-2.226 5.075-6.256 5.075C4.594 16 1 13.987 1 7.994 1 2.034 4.482 0 8.044 0 9.69 0 13.55.243 15 5.036l-1.36.353C12.516 1.974 10.163 1.43 8.006 1.43c-3.565 0-5.582 2.171-5.582 6.79 0 4.143 2.254 6.343 5.63 6.343 2.777 0 4.847-1.443 4.847-3.556 0-1.438-1.208-2.127-1.27-2.127-.236 1.234-.868 3.31-3.644 3.31-1.618 0-3.013-1.118-3.013-2.582 0-2.09 1.984-2.847 3.55-2.847.586 0 1.294.04 1.663.114 0-.637-.54-1.728-1.9-1.728-1.25 0-1.566.405-1.967.868ZM8.716 8.19c-2.04 0-2.304.87-2.304 1.416 0 .878 1.043 1.168 1.6 1.168 1.02 0 2.067-.282 2.232-2.423a6.2 6.2 0 0 0-1.528-.161" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="profile-content" data-theme="code">
+                        <div class="profile-theme-toggle" data-element="toggleTheme" data-tooltip="換個方式 !">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-arrow-right-left">
+                                <path d="m16 3 4 4-4 4" />
+                                <path d="M20 7H4" />
+                                <path d="m8 21-4-4 4-4" />
+                                <path d="M4 17h16" />
+                            </svg>
+                        </div>
+                        <div class="profile-mask"></div>
+                    </div>
+                </div>
+                <div class="projects" data-section="project">
+                    <div class="category-header">我的項目</div>
+                    <div class="project">
+                        <div class="project-banner"></div>
+                        <div class="project-overview">
+                            <div class="project-title">PaGamO Plug-in</div>
+                            <div class="project-description">一款用於提升 PaGamO 使用體驗的外掛程式，可以幫助你提高答題效率，並提供自定義客戶端功能</div>
+                        </div>
+                        <div class="project-buttons">
+                            <a class="project-button" target="_blank" href="https://siyu1017.github.io/pagamo-ext/">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="project-button-icon">
+                                    <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
+                                    <path d="m21 3-9 9" />
+                                    <path d="M15 3h6v6" />
+                                </svg>
+                                <span class="project-button-text">前往官網</span>
+                            </a>
+                            <a class="project-button outline" target="_blank"
+                                href="https://github.com/Siyu1017/pagamo-ext"><svg xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 24 24" class="project-button-icon" fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                                    </path>
+                                </svg>
+                                <span class="project-button-text">在 Github 上查看</span></a>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <div class="project-banner"></div>
+                        <div class="project-overview">
+                            <div class="project-title">JSON Viewer</div>
+                            <div class="project-description">一款 DevTool 樣式的 json 檢視器，讓你輕鬆察看 JSON 物件</div>
+                        </div>
+                        <div class="project-buttons">
+                            <a class="project-button" target="_blank" href="https://siyu1017.github.io/json-viewer/">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="project-button-icon">
+                                    <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
+                                    <path d="m21 3-9 9" />
+                                    <path d="M15 3h6v6" />
+                                </svg>
+                                <span class="project-button-text">立即體驗</span>
+                            </a>
+                            <a class="project-button outline" target="_blank"
+                                href="https://github.com/Siyu1017/json-viewer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    class="project-button-icon" fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                                    </path>
+                                </svg>
+                                <span class="project-button-text">在 Github 上查看</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <div class="project-banner"></div>
+                        <div class="project-overview">
+                            <div class="project-title">StyleViewer.js</div>
+                            <div class="project-description">一款用於查找網頁中元素的樣式的 JavaScript 庫</div>
+                        </div>
+                        <div class="project-buttons">
+                            <a class="project-button" target="_blank" href="https://siyu1017.github.io/StyleViewer.js/">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="project-button-icon">
+                                    <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
+                                    <path d="m21 3-9 9" />
+                                    <path d="M15 3h6v6" />
+                                </svg>
+                                <span class="project-button-text">立即體驗</span>
+                            </a>
+                            <a class="project-button outline" target="_blank"
+                                href="https://github.com/Siyu1017/StyleViewer.js"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    class="project-button-icon" fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                                    </path>
+                                </svg>
+                                <span class="project-button-text">在 Github 上查看</span></a>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <div class="project-banner"></div>
+                        <div class="project-overview">
+                            <div class="project-title">Youtube Downloader</div>
+                            <div class="project-description">透過 Youtube 連結免費且無廣告下載影片的工具</div>
+                        </div>
+                        <div class="project-buttons">
+                            <a class="project-button" target="_blank" href="https://yt-dler.vercel.app/">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="project-button-icon">
+                                    <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
+                                    <path d="m21 3-9 9" />
+                                    <path d="M15 3h6v6" />
+                                </svg>
+                                <span class="project-button-text">立即體驗</span>
+                            </a>
+                            <a class="project-button outline" target="_blank"
+                                href="https://github.com/Siyu1017/yt-dler"><svg xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 24 24" class="project-button-icon" fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                                    </path>
+                                </svg>
+                                <span class="project-button-text">在 Github 上查看</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <!--div class="part">
-        <div class="part-title">擅長語言</div>
-        <div class="list">
-            <div class="item">JavaScript</div>
-            <div class="item">HTML / CSS3</div>
-            <div class="item">Node.js</div>
-            <div class="item">PHP</div>
-        </div>
-    </div-->
-    <footer></footer>
+    <script src="./index.js" defer></script>
 </body>
 
 </html>
