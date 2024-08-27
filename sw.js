@@ -1,5 +1,5 @@
 // sw.js
-const STATIC_NAME = 'static'
+const STATIC_NAME = 'static-' + Date.now();
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
