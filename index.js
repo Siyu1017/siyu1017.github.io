@@ -217,16 +217,13 @@ var profile = {
             "性別": "男性",
             "年齡": getAge(),
             "生日": "2008/10/17",
-            "學校": "高雄中學",
             "電子郵件": "siyu971017@gmail.com"
         }
     },
     "社群媒體": {
-        "Line": "siyu.1017",
         "Instagram": "siyu.1017",
         "Discord": "siyu.1017",
         "Github": "Siyu1017",
-        "WeChat": "siyu_971017",
         "Threads": "siyu.1017"
     },
     "這是什麼?": "這是 JSON Viewer ( https://github.com/Siyu1017/json-viewer/ )"
