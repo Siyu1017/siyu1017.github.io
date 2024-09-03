@@ -303,18 +303,6 @@ discord.addEventListener('click', async () => {
         showNotification();
     }
 })
-wechat.addEventListener('click', async () => {
-    try {
-        await navigator.clipboard.writeText('siyu_971017');
-        notification.innerHTML = '複製成功 : siyu_971017';
-        showNotification();
-    } catch (err) {
-        console.log('Failed to copy: ', err);
-        notification.innerHTML = 'WeChat : siyu_971017';
-        showNotification();
-    }
-})
-
 document.querySelectorAll('[data-item]').forEach(item => {
     item.addEventListener('click', () => {
         currentShow = item.getAttribute('data-item');
