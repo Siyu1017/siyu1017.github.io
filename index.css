@@ -517,6 +517,16 @@ body *::selection {
     gap: 3rem;
 }
 
+/*
+.project-banner {
+    width: -webkit-fill-available;
+    height: 12rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+    */
+
 .project-overview {
     display: flex;
     flex-direction: column;
