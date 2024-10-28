@@ -364,6 +364,7 @@ body *::selection {
     display: flex;
     gap: 8px;
     padding-left: .5rem;
+    align-items: center;
 }
 
 .profile-summary {
