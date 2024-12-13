@@ -274,9 +274,9 @@ function showNotification() {
 
 function getScroll(show) {
     if (show == 'profile') {
-        return homeSection.scrollHeight - 24;
+        return homeSection.scrollHeight - 180;
     } else if (show == 'project') {
-        return homeSection.scrollHeight + profileSection.scrollHeight + window.innerHeight * .25 - 60;
+        return homeSection.scrollHeight + profileSection.scrollHeight + window.innerHeight * .25 - 144;
     } else {
         return 0;
     }
