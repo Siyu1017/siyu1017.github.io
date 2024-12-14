@@ -137,7 +137,8 @@
     function init() {
         entities.length = 0;
         var performance = navigator.hardwareConcurrency > 10 ? 1 : 1.5;
-        for (let i = 0; i < Math.ceil(window.innerWidth / 80 / performance) * Math.ceil(window.innerHeight / 80 / performance); i++) {
+        var max = navigator.hardwareConcurrency > 10 ? 144 : 48;
+        for (let i = 0; i < Math.ceil(window.innerWidth / 80 / performance) * Math.ceil(window.innerHeight / 80 / performance) && i < max; i++) {
             createEntity(true);
         }
     }
