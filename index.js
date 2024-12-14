@@ -21,148 +21,87 @@ function canvasClarifier(canvas, ctx, width, height) {
     }
 }
 
-function randomString(length) {
-    if (!length) return console.warn('Option Invalid');
-    var characters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'm', 'n', 'p', 'Q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '2', '3', '4', '5', '6', '7', '8', '9'],
-        str = '';
-    for (let i = 0; i < length; i++) {
-        str += characters[Math.floor(Math.random() * characters.length)];
-    }
-    return str;
-}
-
-(() => {
-    var canvas = document.getElementById('background');
-    var ctx = canvas.getContext('2d', { willReadFrequently: true });
-
-    function uniqueID() {
-        var id = randomString(72);
-        return id;
-    }
-
-    canvasClarifier(canvas, ctx);
-
-    var numStars = Math.ceil(window.innerWidth * window.innerHeight / 1000);
-    var radius = 1;
-    var focalLength = 1500;
-    var stars = [], star;
-    var centerX, centerY;
-    var pixelX, pixelY, pixelRadius;
-
-    window.onresize = () => {
-        numStars = Math.ceil(window.innerWidth * window.innerHeight / 1000);
-    }
-
-    initializeStars();
-
-    function render() {
-        canvasClarifier(canvas, ctx);
-        updateStars();
-        drawStars();
-        requestAnimationFrame(render);
-    }
-
-    function initializeStars() {
-        stars = [];
-        for (i = 0; i < numStars; i++) {
-            star = {
-                x: Math.random() * canvas.offsetWidth - canvas.offsetWidth / 2,
-                y: Math.random() * canvas.offsetHeight - canvas.offsetHeight / 2,
-                z: Math.random() * focalLength,
-                t: Date.now()
-            };
-            stars.push(star);
-        }
-    }
-
-    function updateStars() {
-        for (i = 0; i < (numStars > stars.length ? stars.length : numStars); i++) {
-            star = stars[i];
-            star.z--;
-
-            if (star.z <= 0) {
-                stars[i] = {
-                    x: Math.random() * canvas.offsetWidth - canvas.offsetWidth / 2,
-                    y: Math.random() * canvas.offsetHeight - canvas.offsetHeight / 2,
-                    z: Math.random() * focalLength,
-                    t: Date.now()
-                };
-            }
-        }
-    }
-
-    function drawStars() {
-        centerX = canvas.offsetWidth / 2;
-        centerY = canvas.offsetHeight / 2;
-
-        ctx.fillStyle = "rgb(17,17,17)";
-        ctx.fillRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
-
-        for (i = 0; i < (numStars > stars.length ? stars.length : numStars); i++) {
-            star = stars[i];
-
-            pixelX = star.x * (focalLength / star.z);
-            pixelX += centerX;
-            pixelY = star.y * (focalLength / star.z);
-            pixelY += centerY;
-            pixelRadius = radius * (focalLength / star.z);
-
-            ctx.save();
-            ctx.beginPath();
-            ctx.fillStyle = Date.now() - star.t < 200 ? `rgba(255,255,255,${(Date.now() - star.t) / 200 * .3})` : "rgba(255,255,255,.3)";
-            ctx.arc(pixelX, pixelY, pixelRadius, 0, 2 * Math.PI);
-            ctx.fill();
-            ctx.restore();
-        }
-    }
-    render();
-})();
-
-(() => {
+'click effect' == true ? (() => {
     var canvas = document.createElement("canvas");
     var ctx = canvas.getContext('2d');
-    var existTime = 750;
-    var pointSize = 100;
-    var points = [];
+    var entities = [];
+    var colors = ["#FF1461", "#18FF92", "#5A87FF", "#FBF38C"];
+    var animateFunction = x => { return x === 1 ? 1 : 1 - Math.pow(2, -10 * x) }
     canvas.className = "click-respond-canvas";
     document.body.appendChild(canvas);
 
     canvasClarifier(canvas, ctx);
 
-    window.addEventListener("click", (e) => {
-        points.push({ x: e.pageX, y: e.pageY, time: Date.now() });
+    window.addEventListener("mousedown", (e) => {
+        var duration = 1200 + ~~(Math.random() * 600)
+        var circleSize = ~~(Math.random() * 40) + 40;
+        var now = Date.now();
+        entities.push({
+            x: e.pageX,
+            y: e.pageY,
+            time: now,
+            type: 'outline',
+            size: [circleSize, circleSize + 20 + ~~(Math.random() * 40)],
+            color: (p) => {
+                var a = 1;
+                return `rgba(214,0,0,${a*(1-p)})`;
+            },  
+            direction: 0,
+            distance: 0,
+            duration
+        });
+        for (let i = 0; i < 30; i++) {
+            entities.push({
+                x: e.pageX,
+                y: e.pageY,
+                time: now,
+                type: 'solid',
+                size: [~~(Math.random() * 16) + 16, 0],
+                color: colors[~~(Math.random() * colors.length)],
+                direction: ~~(Math.random() * 360) * Math.PI / 180,
+                distance: ~~(Math.random() * 130) + 50,
+                duration
+            });
+        }
     })
 
-    function getPercent(value, all) {
-        var percent = value / all;
-        if (percent > 1) {
-            percent = 1;
-        }
-        return percent;
+    function getDiff(entity) {
+        var distance = entity.distance;
+        var x = Math.cos(entity.direction) * distance;
+        var y = Math.sin(entity.direction) * distance;
+        return { x, y };
     }
 
     function render() {
         canvasClarifier(canvas, ctx);
 
-        points.forEach((point, i) => {
-            var percent = getPercent(Date.now() - point.time, existTime);
+        entities.forEach((entity, i) => {
+            var past = Date.now() - entity.time;
+            var percent = animateFunction(past / entity.duration);
+            var diff = getDiff(entity);
+            var color = typeof entity.color == 'string' ? entity.color : entity.color(percent);
             ctx.save();
             ctx.beginPath();
-            ctx.fillStyle = `rgba(255,255,255,${(1 - percent) * .5})`;
-            ctx.arc(point.x, point.y, percent * pointSize / 2, 0, Math.PI * 2);
+            ctx.fillStyle = color;
+            ctx.strokeStyle = color;
+            ctx.arc(entity.x + diff.x * percent, entity.y + diff.y * percent, (entity.size[0] + (entity.size[1] - entity.size[0]) * percent), 0, Math.PI * 2, false);
             ctx.closePath();
-            ctx.fill();
+            if (entity.type == 'solid') {
+                ctx.fill();
+            } else if (entity.type == 'outline') {
+                ctx.stroke();
+            }
             ctx.restore();
-            if (percent == 1) {
-                points.splice(i, 1);
+            if (past >= entity.duration) {
+                entities.splice(i, 1);
             }
         })
 
         requestAnimationFrame(render);
     }
 
-    // render();
-})();
+    render();
+})() : void undefined;
 
 function getAge() {
     var now = new Date();

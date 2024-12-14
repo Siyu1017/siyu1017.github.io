@@ -7,7 +7,7 @@
     <title>Siyu1017</title>
     <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
     <link rel="manifest" href="./manifest.json">
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./index.css" role="main-style">
     <link rel="icon" href="./favicon.ico">
     <link rel="stylesheet" href="https://siyu1017.github.io/json-viewer/viewer.css">
     <script src="https://siyu1017.github.io/json-viewer/viewer.js"></script>
@@ -224,7 +224,175 @@
             </div>
         </div>
     </div>
-    <script src="./index.js" defer></script>
+    <script>
+        function getJsonFromURL(url) {
+            if (!url) url = location.search;
+            var query = url.substr(1);
+            var result = {};
+            query.split("&").forEach(function (part) {
+                var item = part.split("=");
+                result[item[0]] = decodeURIComponent(item[1]);
+            });
+            return result;
+        }
+        var isDevelopment = !!getJsonFromURL()['dev'];
+        var script = document.createElement('script');
+        script.src = `./index.js${isDevelopment == true ? `?timestamp=${Date.now()}` : ''}`;
+        document.body.appendChild(script);
+
+        if (isDevelopment == true) {
+            document.head.querySelector('link[role="main-style"]').href = `./index.css?timestamp=${Date.now()}`;
+        }
+    </script>
+
+    <script>
+        ; (() => {
+            var themes = [{
+                name: 'xmas-2024',
+                scripts: ['./themes/xmas-2024/theme.js'],
+                styles: ['./themes/xmas-2024/theme.css'],
+                available: [new Date('2024/12/01 00:00:00').getTime(), new Date('2024/12/31 23:59:59').getTime()]
+            }]
+
+            var now = Date.now();
+            var applied = 'default';
+
+            themes.forEach(theme => {
+                if (theme.available[0] <= now && now <= theme.available[1] && applied == 'default') {
+                    applied = theme.name;
+                    theme.scripts.forEach(url => {
+                        var script = document.createElement('script');
+                        script.src = url;
+                        document.body.appendChild(script);
+                    });
+                    theme.styles.forEach(url => {
+                        var link = document.createElement('link');
+                        link.rel = 'stylesheet';
+                        link.type = 'text/css';
+                        link.href = url;
+                        document.head.appendChild(link);
+                    })
+                }
+            })
+
+            if (applied == 'default') {
+                (() => {
+                    var canvas = document.createElement('canvas');
+                    var ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+                    canvas.className = 'theme-canvas';
+                    document.body.appendChild(canvas);
+
+                    function uniqueID() {
+                        var id = randomString(72);
+                        return id;
+                    }
+
+                    function randomString(length) {
+                        if (!length) return console.warn('Option Invalid');
+                        var characters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'm', 'n', 'p', 'Q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '2', '3', '4', '5', '6', '7', '8', '9'],
+                            str = '';
+                        for (let i = 0; i < length; i++) {
+                            str += characters[Math.floor(Math.random() * characters.length)];
+                        }
+                        return str;
+                    }
+
+                    function canvasClarifier(canvas, ctx, width, height) {
+                        const originalSize = {
+                            width: (width ? width : canvas.offsetWidth),
+                            height: (height ? height : canvas.offsetHeight)
+                        }
+                        var ratio = window.devicePixelRatio || 1;
+                        canvas.width = originalSize.width * ratio;
+                        canvas.height = originalSize.height * ratio;
+                        ctx.scale(ratio, ratio);
+                        if (originalSize.width != canvas.offsetWidth || originalSize.height != canvas.offsetHeight) {
+                            canvas.style.width = originalSize.width + 'px';
+                            canvas.style.height = originalSize.height + 'px';
+                        }
+                    }
+
+                    canvasClarifier(canvas, ctx);
+
+                    var numStars = Math.ceil(window.innerWidth * window.innerHeight / 1000);
+                    var radius = 1;
+                    var focalLength = 1500;
+                    var stars = [], star;
+                    var centerX, centerY;
+                    var pixelX, pixelY, pixelRadius;
+
+                    window.onresize = () => {
+                        numStars = Math.ceil(window.innerWidth * window.innerHeight / 1000);
+                    }
+
+                    initializeStars();
+
+                    function render() {
+                        canvasClarifier(canvas, ctx);
+                        updateStars();
+                        drawStars();
+                        requestAnimationFrame(render);
+                    }
+
+                    function initializeStars() {
+                        stars = [];
+                        for (i = 0; i < numStars; i++) {
+                            star = {
+                                x: Math.random() * canvas.offsetWidth - canvas.offsetWidth / 2,
+                                y: Math.random() * canvas.offsetHeight - canvas.offsetHeight / 2,
+                                z: Math.random() * focalLength,
+                                t: Date.now()
+                            };
+                            stars.push(star);
+                        }
+                    }
+
+                    function updateStars() {
+                        for (i = 0; i < (numStars > stars.length ? stars.length : numStars); i++) {
+                            star = stars[i];
+                            star.z--;
+
+                            if (star.z <= 0) {
+                                stars[i] = {
+                                    x: Math.random() * canvas.offsetWidth - canvas.offsetWidth / 2,
+                                    y: Math.random() * canvas.offsetHeight - canvas.offsetHeight / 2,
+                                    z: Math.random() * focalLength,
+                                    t: Date.now()
+                                };
+                            }
+                        }
+                    }
+
+                    function drawStars() {
+                        centerX = canvas.offsetWidth / 2;
+                        centerY = canvas.offsetHeight / 2;
+
+                        ctx.fillStyle = "rgb(17,17,17)";
+                        ctx.fillRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+
+                        for (i = 0; i < (numStars > stars.length ? stars.length : numStars); i++) {
+                            star = stars[i];
+
+                            pixelX = star.x * (focalLength / star.z);
+                            pixelX += centerX;
+                            pixelY = star.y * (focalLength / star.z);
+                            pixelY += centerY;
+                            pixelRadius = radius * (focalLength / star.z);
+
+                            ctx.save();
+                            ctx.beginPath();
+                            ctx.fillStyle = Date.now() - star.t < 200 ? `rgba(255,255,255,${(Date.now() - star.t) / 200 * .3})` : "rgba(255,255,255,.3)";
+                            ctx.arc(pixelX, pixelY, pixelRadius, 0, 2 * Math.PI);
+                            ctx.fill();
+                            ctx.restore();
+                        }
+                    }
+                    render();
+                })();
+            }
+        })();
+    </script>
 </body>
 
 </html>
