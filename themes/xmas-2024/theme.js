@@ -120,7 +120,7 @@
     }
 
     function createEntity(initial = false) {
-        var size = random(12, 24);
+        var size = random(18, 24);
         var y = initial == true ? random(window.innerHeight) : -size * 4
         entities.push({
             x: random(window.innerWidth),
@@ -136,7 +136,7 @@
 
     function init() {
         entities.length = 0;
-        var performance = navigator.hardwareConcurrency > 10 ? 1 : 2;
+        var performance = navigator.hardwareConcurrency > 10 ? 1 : 1.5;
         for (let i = 0; i < Math.ceil(window.innerWidth / 80 / performance) * Math.ceil(window.innerHeight / 80 / performance); i++) {
             createEntity(true);
         }
@@ -169,11 +169,16 @@
             entity.angle = (Date.now() - entity.spawn) / 1000 * entity.spinSpeed * Math.PI / 180;
 
             if (entity.y - entity.size * 2 > window.innerHeight) {
-                entity.y = -entity.size * 4;
+                // Respawn
+                var size = random(12, 24);
+                entity.y = -size * 4;
                 entity.x = random(0, window.innerWidth);
                 entity.speed = random(0.4, 0.8);
                 entity.angle = random(0, 2 * Math.PI);
                 entity.spinSpeed = random(4, 12);
+                entity.size = size;
+                entity.spawn = Date.now();
+                entity.type = random(0, Object.keys(types).length - 1, true);
             }
         })
 
