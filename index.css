@@ -260,7 +260,7 @@ body *::selection {
     align-items: center;
     justify-content: center;
     height: -webkit-fill-available;
-    min-height: calc(100vh - var(--navbar-height));
+    min-height: 100vh;
     z-index: 9999;
     text-align: center;
     flex-direction: column;
@@ -498,7 +498,8 @@ body *::selection {
     display: flex;
     justify-content: center;
     z-index: 99;
-    padding: 24px;
+    padding: 1.5rem;
+    padding-top: calc(var(--navbar-height) + 2rem);
     pointer-events: none;
 }
 
