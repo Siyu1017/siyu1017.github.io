@@ -130,7 +130,7 @@
             spawn: Date.now(),
             speed: random(.4, .8),
             type: random(0, Object.keys(types).length - 1, true),
-            spinSpeed: random(-48, 48)
+            spinSpeed: random(-24, 24)
         })
     }
 
@@ -176,7 +176,7 @@
                 entity.x = random(0, window.innerWidth);
                 entity.speed = random(0.4, 0.8);
                 entity.angle = random(0, 2 * Math.PI);
-                entity.spinSpeed = random(4, 12);
+                entity.spinSpeed = random(-24, 24);
                 entity.size = size;
                 entity.spawn = Date.now();
                 entity.type = random(0, Object.keys(types).length - 1, true);
