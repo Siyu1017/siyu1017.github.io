@@ -182,6 +182,7 @@ toggleMenu.addEventListener('click', () => {
 
 toggleThemes.forEach(toggleTheme => {
     toggleTheme.addEventListener('click', () => {
+        toggleTheme.classList.remove('highlight')
         if (theme == 'modern') {
             theme = 'code';
             document.querySelector('[data-theme="modern"]').style.display = 'none';

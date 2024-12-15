@@ -58,10 +58,9 @@
     left: 0;
     bottom: auto;
     transform-origin: right center;
-
 }
 
-.profile-theme-toggle[data-tooltip]:hover:after {
+.profile-theme-toggle[data-tooltip]:is(:hover,.highlight):after {
     opacity: 1;
     visibility: visible;
     transform: translate(-100%, -50%) scale(1);
@@ -482,6 +481,7 @@ body *::selection {
 }
 
 .profile-social:hover,
+.profile-theme-toggle.highlight,
 .profile-theme-toggle:hover {
     background: rgb(60, 60, 60);
 }
