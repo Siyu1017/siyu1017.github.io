@@ -49,6 +49,7 @@
     var paused = false;
     var types = {
         0: (ctx, cp) => {
+            var ctx = new Path2D();
             for (let i = 0; i < 6; i++) {
                 // Default line
                 ctx.moveTo(0, 0);
@@ -71,8 +72,10 @@
                 ctx.lineTo(twothirdsPoint[0] + Math.cos((i + 1) * Math.PI / 3) / 3 * cp, twothirdsPoint[1] + Math.sin((i + 1) * Math.PI / 3) / 3 * cp);
                 ctx.closePath();
             }
+            return ctx;
         },
         1: (ctx, cp) => {
+            var ctx = new Path2D();
             for (let i = 0; i < 6; i++) {
                 // Default line
                 ctx.moveTo(0, 0);
@@ -99,8 +102,10 @@
                 ctx.lineTo(threequartersPoint[0] + Math.cos((i + .75) * Math.PI / 3) / 4 * cp, threequartersPoint[1] + Math.sin((i + .75) * Math.PI / 3) / 4 * cp);
                 ctx.closePath();
             }
+            return ctx;
         },
         2: (ctx, cp) => {
+            var ctx = new Path2D();
             for (let i = 0; i < 6; i++) {
                 // Default line
                 ctx.moveTo(0, 0);
@@ -115,13 +120,65 @@
                 ctx.lineTo(threefifthsPoint[0] + Math.cos((i + .75) * Math.PI / 3) / 3 * cp, threefifthsPoint[1] + Math.sin((i + .75) * Math.PI / 3) / 3 * cp);
                 ctx.closePath();
             }
-            ctx.stroke();
+            return ctx;
         }
+    }
+
+    const typeConfigs = {
+        0: {
+            points: [1 / 3, 2 / 3],
+            branchAngles: [-1, 1],
+            branchScale: 1 / 3
+        },
+        1: {
+            points: [0.5, 0.75],
+            branchAngles: [-0.75, 0.75],
+            branchScale: [0.33, 0.25] // 不同分支的縮放
+        },
+        2: {
+            points: [3 / 5],
+            branchAngles: [-0.75, 0.75],
+            branchScale: 1 / 3
+        },
+        3: {
+            points: [0.25, 0.5, 0.75],
+            branchAngles: [-0.75, 0.75],
+            branchScale: [0.2, 0.3, 0.1]
+        }
+    };
+    function createSnowflake(type, cp) {
+        const ctx = new Path2D();
+        const angles = Array.from({ length: 6 }, (_, i) => i * Math.PI / 3);
+        const config = typeConfigs[type];
+        if (!config) return ctx;
+
+        angles.forEach(angle => {
+            const endX = cp * Math.cos(angle);
+            const endY = cp * Math.sin(angle);
+            ctx.moveTo(0, 0);
+            ctx.lineTo(endX, endY);
+
+            config.points.forEach((ratio, index) => {
+                const branchX = endX * ratio;
+                const branchY = endY * ratio;
+
+                config.branchAngles.forEach((branchAngle, bIndex) => {
+                    const scale = Array.isArray(config.branchScale) ? config.branchScale[index] : config.branchScale;
+                    const bx = branchX + scale * cp * Math.cos(angle + branchAngle * Math.PI / 3);
+                    const by = branchY + scale * cp * Math.sin(angle + branchAngle * Math.PI / 3);
+                    ctx.moveTo(branchX, branchY);
+                    ctx.lineTo(bx, by);
+                });
+            });
+        });
+
+        return ctx;
     }
 
     function createEntity(initial = false) {
         var size = random(18, 24);
-        var y = initial == true ? random(window.innerHeight) : -size * 4
+        var y = initial == true ? random(window.innerHeight) : -size * 4;
+        var type = random(0, Object.keys(typeConfigs).length - 1, true);
         entities.push({
             x: random(window.innerWidth),
             y: y,
@@ -129,8 +186,9 @@
             angle: random(360) * Math.PI / 2,
             spawn: Date.now(),
             speed: random(.4, .8),
-            type: random(0, Object.keys(types).length - 1, true),
-            spinSpeed: random(-24, 24)
+            type: type,
+            spinSpeed: random(-24, 24),
+            path: createSnowflake(type, size / 2)// types[type]('', size / 2)
         })
     }
 
@@ -152,19 +210,29 @@
         }
     })
 
+    // var fpsEl = document.createElement('div');
+    // fpsEl.style.position = 'fixed';
+    // fpsEl.style.left = '1rem';
+    // fpsEl.style.bottom = '1rem';
+    // fpsEl.style.color = '#fff';
+    // document.body.appendChild(fpsEl);
+    var fps = 0;
+    var last = Date.now();
+
     function render() {
         canvasClarifier(canvas, ctx);
 
+        ctx.strokeStyle = `rgba(255,255,255,.2)`;
         entities.forEach((entity, i) => {
             var cp = entity.size / 2;
             ctx.save();
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(255,255,255,.2)`;
+
             ctx.translate(entity.x, entity.y);
-            ctx.rotate(entity.angle); types[entity.type](ctx, cp);
+            ctx.rotate(entity.angle); // types[entity.type](ctx, cp);
             // ctx.arc(entity.x, entity.y, entity.size, 0, Math.PI * 2, false);
             // ctx.closePath();
-            ctx.stroke();
+            ctx.stroke(entity.path);
             ctx.restore();
             entity.y += entity.speed;
             entity.angle = (Date.now() - entity.spawn) / 1000 * entity.spinSpeed * Math.PI / 180;
@@ -179,9 +247,18 @@
                 entity.spinSpeed = random(-24, 24);
                 entity.size = size;
                 entity.spawn = Date.now();
-                entity.type = random(0, Object.keys(types).length - 1, true);
+                entity.type = random(0, Object.keys(typeConfigs).length - 1, true);
+                entity.path = createSnowflake(entity.type, size / 2);
             }
         })
+
+        var now = Date.now();
+        fps++;
+        if (now - last > 1000) {
+            // fpsEl.innerHTML = fps;
+            fps = 0;
+            last = now;
+        }
 
         if (paused == false) {
             requestAnimationFrame(render);
