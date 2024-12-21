@@ -265,11 +265,6 @@
             themes.forEach(theme => {
                 if (theme.available[0] <= now && now <= theme.available[1]) {
                     applied = theme.name;
-                    theme.scripts.forEach(url => {
-                        var script = document.createElement('script');
-                        script.src = url;
-                        document.body.appendChild(script);
-                    });
                     theme.styles.forEach(url => {
                         var link = document.createElement('link');
                         link.rel = 'stylesheet';
@@ -277,6 +272,11 @@
                         link.href = url;
                         document.head.appendChild(link);
                     })
+                    theme.scripts.forEach(url => {
+                        var script = document.createElement('script');
+                        script.src = url;
+                        document.body.appendChild(script);
+                    });
                 }
             })
 
