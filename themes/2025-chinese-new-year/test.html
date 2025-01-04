@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Coin with Correct 3D Ellipse</title>
+    <style>
+        canvas {
+            display: block;
+            margin: auto;
+            background: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="coinCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById('coinCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas dimensions
+        canvas.width = 400;
+        canvas.height = 400;
+
+        let angle = 0; // Rotation angle
+        const coinRadius = 50; // Coin radius
+        const coinThickness = 20; // Coin thickness
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+
+        function drawCoin(angle) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Simulate rotation and perspective
+            const scale = Math.abs(Math.cos(angle));
+            const perspectiveThickness = coinThickness * scale;
+
+            // Draw coin side (with gradient for depth effect)
+            const gradient = ctx.createLinearGradient(
+                centerX - coinRadius * scale,
+                centerY,
+                centerX + coinRadius * scale,
+                centerY
+            );
+            gradient.addColorStop(0, '#b8860b'); // Darker gold
+            gradient.addColorStop(0.5, '#daa520'); // Medium gold
+            gradient.addColorStop(1, '#b8860b'); // Darker gold
+
+            ctx.beginPath();
+            ctx.rect(
+                centerX - coinRadius * scale,
+                centerY - perspectiveThickness / 2,
+                2 * coinRadius * scale,
+                perspectiveThickness
+            );
+            ctx.fillStyle = gradient;
+            ctx.fill();
+
+            // Draw coin front face (ellipse)
+            ctx.beginPath();
+            ctx.ellipse(centerX, centerY, coinRadius * scale, coinRadius, 0, 0, Math.PI * 2);
+            const brightness = Math.floor(200 + 55 * scale); // Dynamic brightness
+            ctx.fillStyle = `rgb(${brightness}, ${brightness - 50}, 0)`; // Gold-like color
+            ctx.fill();
+
+            // Add border
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = `rgb(${brightness - 30}, ${brightness - 80}, 0)`; // Border color
+            ctx.stroke();
+
+            // Add head (3D ellipse) to the coin
+            if (scale > 0.1) { // Visible only when not too thin
+                const ellipseWidth = coinRadius * 0.4 * scale;
+                const ellipseHeight = coinRadius * 0.4;
+
+                ctx.beginPath();
+                ctx.ellipse(centerX, centerY, ellipseWidth, ellipseHeight, 0, 0, Math.PI * 2);
+                const headBrightness = Math.floor(220 + 35 * scale); // Slightly brighter
+                ctx.fillStyle = `rgb(${headBrightness}, ${headBrightness - 30}, 0)`;
+                ctx.fill();
+
+                ctx.lineWidth = 1;
+                ctx.strokeStyle = `rgb(${headBrightness - 10}, ${headBrightness - 50}, 0)`;
+                ctx.stroke();
+            }
+        }
+
+        function animate() {
+            angle += 0.01; // Increment angle
+            drawCoin(angle);
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+
+</html>
