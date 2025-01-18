@@ -146,22 +146,22 @@
         }   
         */
 
-        var navbar = document.querySelector('.navbar')
-        var navbarPostion = getPosition(navbar);
-        ctx.translate(navbarPostion.x + 32, navbarPostion.y + navbar.offsetHeight + 100 * 0.375);
+        //var navbar = document.querySelector('.navbar')
+        //var navbarPostion = getPosition(navbar);
+        //ctx.translate(navbarPostion.x + 32, navbarPostion.y + navbar.offsetHeight + 100 * 0.375);
         //ctx.strokeStyle = '#fff';
         //ctx.strokeRect(0, 100 * -0.375, 100, 100 * 1.75);
-        lantern(ctx, 100);
-        ctx.translate(-(navbarPostion.x + 32), -(navbarPostion.y + navbar.offsetHeight + 100 * 0.375))
-        ctx.translate(navbarPostion.x + navbar.offsetWidth - 32 - 100, navbarPostion.y + navbar.offsetHeight + 100 * 0.375);
+        //lantern(ctx, 100);
+        //ctx.translate(-(navbarPostion.x + 32), -(navbarPostion.y + navbar.offsetHeight + 100 * 0.375))
+        //ctx.translate(navbarPostion.x + navbar.offsetWidth - 32 - 100, navbarPostion.y + navbar.offsetHeight + 100 * 0.375);
         //ctx.strokeStyle = '#fff';
         //ctx.strokeRect(0, 100 * -0.375, 100, 100 * 1.75);
-        lantern(ctx, 100);
+        //lantern(ctx, 100);
 
         var now = Date.now();
         fps++;
         if (now - last > 1000) {
-            //fpsEl.innerHTML = fps;
+            fpsEl.innerHTML = fps;
             fps = 0;
             last = now;
         }
@@ -174,7 +174,7 @@
     init();
     render();
 
-    window.xmas2024 = {
+    window._2025_chinese_new_year = {
         pause: function () {
             paused = true;
         },
