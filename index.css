@@ -60,7 +60,7 @@
     transform-origin: right center;
 }
 
-.profile-theme-toggle[data-tooltip]:is(:hover,.highlight):after {
+.profile-theme-toggle[data-tooltip]:is(:hover, .highlight):after {
     opacity: 1;
     visibility: visible;
     transform: translate(-100%, -50%) scale(1);
@@ -119,7 +119,7 @@ body *::selection {
     flex-direction: row;
     height: var(--navbar-height);
     align-items: center;
-    padding: 0 24px;
+    padding: 0 12px;
     gap: 8px;
     box-shadow: 0 0 0px 1px hsl(0deg 0% 100% / 10%);
     user-select: none;
@@ -146,7 +146,7 @@ body *::selection {
 .navbar-icon-image {
     width: var(--navbar-image-size);
     height: var(--navbar-image-size);
-    border-radius: 12px;
+    border-radius: 6px;
     user-select: none;
     -webkit-user-select: none;
     -webkit-user-drag: none;
@@ -164,6 +164,11 @@ body *::selection {
     font-size: 14px;
     color: rgb(156, 163, 175);
     text-decoration: none;
+}
+
+.navbar-item:hover,
+.menu-item:hover {
+    color: rgb(228, 238, 255);
 }
 
 .navbar-left,
@@ -201,7 +206,7 @@ body *::selection {
 }
 
 .navbar-left {
-    gap: 12px;
+    gap: 1rem;
 }
 
 .content {
@@ -343,13 +348,19 @@ body *::selection {
     display: none;
 }
 
-.profile,
+.profile-content,
 .project {
     max-width: min(90%, 600px);
     background: rgb(36, 36, 36);
     border-radius: 1.5rem;
     position: relative;
     width: -webkit-fill-available;
+}
+
+.profile-content {
+    padding: 2rem;
+    line-height: 1.5;
+    padding-bottom: 1rem;
 }
 
 .profile-title {
@@ -385,6 +396,9 @@ body *::selection {
     overflow: hidden;
     border-radius: 1.5rem;
     min-height: 64px;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .profile-avatar {
@@ -406,9 +420,10 @@ body *::selection {
 .profile-socials {
     display: flex;
     width: -webkit-fill-available;
-    justify-content: space-around;
-    padding: .75rem .75rem;
+    justify-content: center;
     border-top: 1.5px solid rgba(255, 255, 255, .1);
+    padding-top: 1rem;
+    gap: 1rem;
 }
 
 .profile-social {
@@ -518,6 +533,14 @@ body *::selection {
     transform: translateY(0);
 }
 
+.profile {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
 .projects {
     width: 100vw;
     display: flex;
@@ -615,7 +638,7 @@ body *::selection {
 
 @media screen and (max-width: 768px) {
     .navbar {
-        padding: 0 18px 0 24px;
+        padding: 0 12px;
     }
 
     .navbar-fold {
