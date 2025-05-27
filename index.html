@@ -29,6 +29,16 @@
     <meta property="twitter:title" content="Siyu1017" />
     <meta property="twitter:description" content="Siyu1017 的個人網站 ! 快來這裡認識我吧 ~" />
     <meta property="twitter:image" content="https://siyu1017.github.io/icons/original.png" />
+
+    <script>
+        function updateScreenSize() {
+            document.querySelector(':root').style.setProperty('--screen-width', window.innerWidth + 'px');
+            document.querySelector(':root').style.setProperty('--screen-height', window.innerHeight + 'px');
+        }
+
+        window.addEventListener('resize', updateScreenSize);
+        window.addEventListener('load', updateScreenSize);
+    </script>
 </head>
 
 <body>
@@ -85,7 +95,7 @@
                         <div class="profile-narrative">
                             我是一個 <span data-element="age"></span> 歲的開發人員，熟悉 HTML、CSS、JS 等語言，主要做前端開發，也會一點點後端，我致力於創造提高開發效率的代碼庫以及製作實用工具。
                         </div>
-                        
+
                         <!--div class="profile-basic">
                             <div class="profile-summary">
                                 <div class="profile-avatar"></div>
@@ -329,7 +339,7 @@
                         }
                     }
 
-                    canvasClarifier(canvas, ctx);
+                    canvasClarifier(canvas, ctx, window.innerWidth, window.innerHeight);
 
                     var numStars = Math.ceil(window.innerWidth * window.innerHeight / 1000);
                     var radius = 1;
@@ -345,7 +355,7 @@
                     initializeStars();
 
                     function render() {
-                        canvasClarifier(canvas, ctx);
+                        canvasClarifier(canvas, ctx, window.innerWidth, window.innerHeight);
                         updateStars();
                         drawStars();
                         requestAnimationFrame(render);

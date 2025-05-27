@@ -30,7 +30,7 @@ function canvasClarifier(canvas, ctx, width, height) {
     canvas.className = "click-respond-canvas";
     document.body.appendChild(canvas);
 
-    canvasClarifier(canvas, ctx);
+    canvasClarifier(canvas, ctx, window.innerWidth, window.innerHeight);
 
     window.addEventListener("mousedown", (e) => {
         var duration = 1200 + ~~(Math.random() * 600)
@@ -73,7 +73,7 @@ function canvasClarifier(canvas, ctx, width, height) {
     }
 
     function render() {
-        canvasClarifier(canvas, ctx);
+        canvasClarifier(canvas, ctx, window.innerWidth, window.innerHeight);
 
         entities.forEach((entity, i) => {
             var past = Date.now() - entity.time;

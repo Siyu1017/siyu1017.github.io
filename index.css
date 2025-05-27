@@ -80,8 +80,8 @@ html {
 
 body {
     margin: 0;
-    width: 100vw;
-    height: 100vh;
+    width: var(--screen-width);
+    height: var(--screen-height);
     overflow-x: hidden;
     overflow-y: hidden;
     background-position: center;
@@ -98,13 +98,13 @@ body *::selection {
     z-index: -1;
     left: 0;
     top: 0;
-    width: 100vw;
-    height: 100vh;
+    width: var(--screen-width);
+    height: var(--screen-height);
 }
 
 .container {
-    width: 100vw;
-    height: 100vh;
+    width: var(--screen-width);
+    height: var(--screen-height);
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -130,7 +130,7 @@ body *::selection {
     backdrop-filter: blur(32px);
     min-height: var(--navbar-height);
     width: calc(100% - 2rem);
-    border-radius: .875rem;
+    border-radius: 1.125rem;
 }
 
 .navbar-icon {
@@ -264,7 +264,7 @@ body *::selection {
     align-items: center;
     justify-content: center;
     height: -webkit-fill-available;
-    min-height: calc(100vh + var(--navbar-height) + 1rem);
+    min-height: calc(var(--screen-height) + var(--navbar-height) + 1rem);
     z-index: 9999;
     text-align: center;
     flex-direction: column;
@@ -509,7 +509,7 @@ body *::selection {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: var(--screen-width);
     display: flex;
     justify-content: center;
     z-index: 99;
@@ -534,7 +534,7 @@ body *::selection {
 }
 
 .profile {
-    width: 100vw;
+    width: var(--screen-width);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -542,7 +542,7 @@ body *::selection {
 }
 
 .projects {
-    width: 100vw;
+    width: var(--screen-width);
     display: flex;
     padding: 25vh 0;
     flex-direction: column;
@@ -665,7 +665,7 @@ body *::selection {
         display: flex;
         flex-direction: column;
         height: fit-content;
-        max-height: calc(100vh - var(--navbar-height));
+        max-height: calc(var(--screen-height) - var(--navbar-height));
         width: fit-content;
         padding: .5rem;
         background: rgb(24 24 24 / 85%);
@@ -707,7 +707,7 @@ body *::selection {
     }
 }
 
-/********************* For profile card *********************/
+/********************* For profile card and project *********************/
 
 @media screen and (max-width: 699px) {
     .profile-basic {
@@ -758,6 +758,10 @@ body *::selection {
         right: unset;
         margin-left: auto;
     }
+
+    .project {
+        border-radius: 2rem;
+    }
 }
 
 @media screen and (max-width: 300px) {
@@ -771,8 +775,8 @@ body *::selection {
 }
 
 .click-respond-canvas {
-    width: 100vw;
-    height: 100vh;
+    width: var(--screen-width);
+    height: var(--screen-height);
     position: fixed;
     top: 0;
     left: 0;
@@ -786,8 +790,8 @@ body *::selection {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: var(--screen-width);
+    height: var(--screen-height);
     z-index: -1;
     pointer-events: none;
 }
