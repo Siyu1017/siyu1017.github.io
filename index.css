@@ -320,7 +320,7 @@ body *::selection {
     top: calc(0.125rem + var(--navbar-height));
     right: 2.125rem;
     transform: scale(0) translateY(0);
-    transition: transform .2s cubic-bezier(.52, .16, .04, 1);
+    transition: transform .2s cubic-bezier(.52, .16, .04, 1) ,opacity .1s ease-in-out;
     z-index: 999;
     transform-origin: calc(100% - 20px) top;
 }
@@ -674,10 +674,12 @@ body *::selection {
         gap: 6px;
         backdrop-filter: blur(32px);
         border-radius: .75rem;
+        opacity: 0;
     }
 
     .container.show-menu .menu {
         transform: scale(1) translateY(1.75rem);
+        opacity: 1;
         box-shadow: 0 0px 16px 8px rgba(0, 0, 0, .15), 0 0 0px 1px hsl(0deg 0% 100% / 15%);
     }
 

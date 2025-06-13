@@ -220,7 +220,7 @@
     var last = Date.now();
 
     function render() {
-        canvasClarifier(canvas, ctx);
+        canvasClarifier(canvas, ctx, window.innerWidth, window.innerHeight);
 
         ctx.strokeStyle = `rgba(255,255,255,.2)`;
         entities.forEach((entity, i) => {
