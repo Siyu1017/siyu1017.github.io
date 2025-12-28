@@ -212,6 +212,8 @@ body {
     text-align: center;
     font-size: 1rem;
     padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .hero-description-line {
@@ -573,6 +575,10 @@ body {
 
     .navbar-item:hover {
         background: rgb(255 255 255 / 5%);
+    }
+
+    .hero-description {
+        display: block;
     }
 }
 
