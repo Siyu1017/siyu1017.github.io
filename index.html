@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Siyu1017</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="./index.css" role="main-style">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="google-site-verification" content="1A0ThznYamKxu1Kc7g5yGVZ6SYtT-rB9R_59ypIZt-8" />
+    <meta name="theme-color" content="rgb(17,17,17)" />
+    <meta name="title" content="Siyu1017" />
+    <meta name="description" content="Siyu's personal website" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://siyu1017.github.io/" />
+    <meta property="og:title" content="Siyu1017" />
+    <meta property="og:description" content="Siyu's personal website" />
+    <meta property="og:image" content="https://siyu1017.github.io/icons/original.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://siyu1017.github.io/" />
+    <meta property="twitter:title" content="Siyu1017" />
+    <meta property="twitter:description" content="Siyu's personal website" />
+    <meta property="twitter:image" content="https://siyu1017.github.io/icons/original.png" />
+
+    <script>
+        function updateScreenSize() {
+            document.querySelector(':root').style.setProperty('--screen-width', window.innerWidth + 'px');
+            document.querySelector(':root').style.setProperty('--screen-height', window.innerHeight + 'px');
+        }
+
+        window.addEventListener('resize', updateScreenSize);
+        window.addEventListener('load', updateScreenSize);
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <div class="app-content">
+            <nav class="navbar">
+                <a class="navbar-icon" href="#home">
+                    <div class="navbar-icon-image"></div>
+                </a>
+                <div class="navbar-menu">
+                    <a class="navbar-item" href="#home" data-item="home">Home</a>
+                    <a class="navbar-item" href="#skills" data-item="skills">Skills</a>
+                    <a class="navbar-item" href="#projects" data-item="projects">Projects</a>
+                    <a class="navbar-item" href="#contact" data-item="contact">Contact</a>
+                </div>
+                <div class="navbar-links">
+                    <a href="https://github.com/siyu1017/siyu1017.github.io" target="_blank" class="navbar-link github">Github</a>
+                    <div class="navbar-hamburger"></div>
+                </div>
+            </nav>
+            <section class="hero" data-name="home">
+                <div class="hero-title">
+                    Hi, <span class="hero-emphasis">I’m Siyu</span>.
+                </div>
+                <div class="hero-description">
+                    <span class="hero-description-line">Student passionate about <span class="hero-description-emphasis">web development</span> with <span class="hero-description-emphasis">4+ years</span> of experience,</span>
+                    <span class="hero-description-line">turning ideas into functional and engaging experiences.</span>
+                </div>
+            </section>
+            <section class="skills" data-name="skills">
+                <div class="section-header">Skills</div>
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="defaultGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+                                        <stop offset="10%" stop-color="#e3e3e3" />
+                                        <stop offset="100%" stop-color="#3d3d3d" />
+                                    </linearGradient>
+                                    <linearGradient id="hoverGradient_js">
+                                        <stop offset="100%" stop-color="#F0DB4F" />
+                                    </linearGradient>
+                                    <rect id="defaultRect" width="256" height="256" rx="60" fill="url(#defaultGradient)" />
+                                    <rect id="hoverRect_js" width="256" height="256" rx="60" fill="url(#hoverGradient_js)" />
+                                </defs>
+                                <use href="#hoverRect_js" class="hover" />
+                                <use href="#defaultRect" class="default" />
+                                <path d="M67.3117 213.932L86.9027 202.076C90.6821 208.777 94.1202 214.447 102.367 214.447C110.272 214.447 115.256 211.355 115.256 199.327V117.529H139.314V199.667C139.314 224.584 124.708 235.926 103.398 235.926C84.1533 235.926 72.9819 225.959 67.3113 213.93" fill="#323330" />
+                                <path d="M152.381 211.354L171.969 200.013C177.126 208.434 183.828 214.62 195.684 214.62C205.653 214.62 212.009 209.636 212.009 202.762C212.009 194.514 205.479 191.592 194.481 186.782L188.468 184.203C171.111 176.815 159.597 167.535 159.597 147.945C159.597 129.901 173.345 116.153 194.826 116.153C210.12 116.153 221.118 121.481 229.022 135.4L210.291 147.429C206.166 140.04 201.7 137.119 194.826 137.119C187.78 137.119 183.312 141.587 183.312 147.429C183.312 154.646 187.78 157.568 198.09 162.037L204.104 164.614C224.553 173.379 236.067 182.313 236.067 202.418C236.067 224.072 219.055 235.928 196.2 235.928C173.861 235.928 159.426 225.274 152.381 211.354" fill="#323330" />
+                            </svg>
+                        </div>
+                        <div class="skill-name">JavaScript</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256">
+                                <defs>
+                                    <linearGradient id="defaultGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+                                        <stop offset="10%" stop-color="#e3e3e3" />
+                                        <stop offset="100%" stop-color="#3d3d3d" />
+                                    </linearGradient>
+                                    <linearGradient id="hoverGradient_node">
+                                        <stop offset="100%" stop-color="#81CD39" />
+                                    </linearGradient>
+                                    <rect id="defaultRect" width="256" height="256" rx="60" fill="url(#defaultGradient)" />
+                                    <rect id="hoverRect_node" width="256" height="256" rx="60" fill="url(#hoverGradient_node)" />
+                                </defs>
+                                <use href="#hoverRect_node" class="hover" />
+                                <use href="#defaultRect" class="default" />
+                                <path fill="#323330" d="M119.878 31.1164C124.797 28.3008 131.203 28.2883 136.117 31.1164C160.839 45.0855 185.569 59.0332 210.287 73.0108C214.937 75.6296 218.046 80.8038 217.999 86.1608V170.206C218.034 175.785 214.617 181.083 209.712 183.642C185.071 197.535 160.442 211.444 135.805 225.337C130.786 228.207 124.251 227.986 119.387 224.88C112 220.598 104.6 216.336 97.2121 212.058C95.7022 211.158 94.0004 210.442 92.9345 208.978C93.8766 207.708 95.5618 207.55 96.9309 206.995C100.014 206.014 102.847 204.44 105.679 202.913C106.396 202.423 107.27 202.611 107.957 203.049C114.274 206.671 120.536 210.399 126.874 213.986C128.226 214.767 129.595 213.73 130.751 213.086C154.931 199.419 179.141 185.805 203.318 172.134C204.214 171.703 204.709 170.752 204.636 169.771C204.653 142.046 204.64 114.317 204.645 86.5918C204.747 85.4785 204.103 84.455 203.096 83.999C178.541 70.1702 153.997 56.3205 129.446 42.4882C128.575 41.8893 127.426 41.8878 126.554 42.4837C102.002 56.3205 77.4638 70.1832 52.9124 84.011C51.9092 84.4675 51.236 85.4745 51.3554 86.5918C51.3596 114.317 51.3554 142.046 51.3554 169.775C51.2682 170.756 51.801 171.687 52.6906 172.109C59.2422 175.824 65.8024 179.513 72.3582 183.216C76.0516 185.203 80.5863 186.385 84.6555 184.862C88.2463 183.574 90.7633 179.909 90.6948 176.097C90.7288 148.534 90.6778 120.967 90.7203 93.4078C90.6309 92.1841 91.7912 91.1731 92.981 91.2885C96.1292 91.267 99.281 91.2461 102.429 91.297C103.743 91.267 104.647 92.5847 104.485 93.8174C104.472 121.555 104.519 149.293 104.464 177.03C104.472 184.423 101.435 192.467 94.5973 196.084C86.1737 200.447 75.7619 199.522 67.4399 195.338C60.2355 191.742 53.3603 187.498 46.2838 183.646C41.3661 181.101 37.966 175.782 38.0006 170.207V86.1608C37.949 80.6929 41.1825 75.4248 45.9764 72.8445C70.6133 58.9408 95.2461 45.0261 119.878 31.1164Z" class="colored" style="--org-color: #81CD39" />
+                                <path fill="#323330" d="M141.372 89.3351C152.117 88.6433 163.62 88.9255 173.289 94.2185C180.776 98.2754 184.926 106.789 185.058 115.106C184.849 116.227 183.676 116.846 182.605 116.769C179.488 116.765 176.369 116.812 173.252 116.748C171.929 116.799 171.161 115.58 170.995 114.411C170.099 110.431 167.928 106.49 164.183 104.57C158.433 101.692 151.767 101.837 145.497 101.897C140.92 102.139 135.998 102.536 132.12 105.227C129.143 107.266 128.239 111.382 129.301 114.697C130.303 117.077 133.05 117.845 135.299 118.553C148.248 121.94 161.97 121.602 174.672 126.059C179.931 127.876 185.075 131.409 186.875 136.915C189.23 144.295 188.198 153.115 182.947 159.039C178.689 163.914 172.488 166.568 166.303 168.009C158.075 169.844 149.536 169.891 141.18 169.076C133.323 168.18 125.146 166.116 119.081 160.763C113.894 156.259 111.361 149.241 111.612 142.469C111.672 141.325 112.811 140.527 113.907 140.621C117.046 140.596 120.186 140.587 123.325 140.626C124.58 140.536 125.509 141.62 125.574 142.802C126.152 146.593 127.577 150.573 130.884 152.82C137.264 156.937 145.271 156.655 152.577 156.77C158.63 156.502 165.425 156.421 170.364 152.42C172.97 150.138 173.742 146.32 173.038 143.036C172.275 140.263 169.374 138.971 166.883 138.126C154.1 134.083 140.224 135.55 127.565 130.977C122.425 129.161 117.455 125.727 115.481 120.447C112.726 112.974 113.988 103.73 119.789 98.0061C125.445 92.312 133.609 90.1192 141.372 89.3346V89.3351" />
+                            </svg>
+                        </div>
+                        <div class="skill-name">Node.js</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256">
+                                <defs>
+                                    <linearGradient id="defaultGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+                                        <stop offset="10%" stop-color="#e3e3e3" />
+                                        <stop offset="100%" stop-color="#3d3d3d" />
+                                    </linearGradient>
+                                    <linearGradient id="hoverGradient_php">
+                                        <stop offset="100%" stop-color="#7B7FB6" />
+                                    </linearGradient>
+                                    <rect id="defaultRect" width="256" height="256" rx="60" fill="url(#defaultGradient)" />
+                                    <rect id="hoverRect_php" width="256" height="256" rx="60" fill="url(#hoverGradient_php)" />
+                                </defs>
+                                <use href="#hoverRect_php" class="hover" />
+                                <use href="#defaultRect" class="default" />
+                                <path fill="#323330" d="M49.158 100.246H77.566C85.904 100.316 91.946 102.72 95.692 107.454C99.438 112.188 100.674 118.654 99.402 126.852C98.908 130.598 97.812 134.272 96.116 137.876C94.49 141.48 92.23 144.73 89.332 147.628C85.798 151.302 82.018 153.634 77.99 154.624C73.962 155.614 69.792 156.108 65.482 156.108H52.762L48.734 176.248H34L49.158 100.246V100.246ZM61.56 112.33L55.2 144.13C55.624 144.2 56.048 144.236 56.472 144.236C56.966 144.236 57.462 144.236 57.956 144.236C64.74 144.306 70.394 143.636 74.916 142.222C79.438 140.738 82.478 135.58 84.032 126.746C85.304 119.326 84.032 115.05 80.216 113.92C76.47 112.79 71.772 112.26 66.118 112.33C65.27 112.4 64.458 112.436 63.68 112.436C62.974 112.436 62.232 112.436 61.454 112.436L61.56 112.33" />
+                                <path fill="#323330" d="M116.186 80H130.814L126.68 100.246H139.824C147.032 100.388 152.402 101.872 155.936 104.698C159.54 107.524 160.6 112.896 159.116 120.81L152.014 156.108H137.174L143.958 122.4C144.664 118.866 144.452 116.358 143.322 114.874C142.192 113.39 139.754 112.648 136.008 112.648L124.242 112.542L115.55 156.108H100.922L116.186 80Z" />
+                                <path fill="#323330" d="M174.824 100.246H203.232C211.57 100.316 217.612 102.72 221.358 107.454C225.104 112.188 226.34 118.654 225.068 126.852C224.574 130.598 223.478 134.272 221.782 137.876C220.156 141.48 217.896 144.73 214.998 147.628C211.464 151.302 207.684 153.634 203.656 154.624C199.628 155.614 195.458 156.108 191.148 156.108H178.428L174.4 176.248H159.666L174.824 100.246V100.246ZM187.226 112.33L180.866 144.13C181.29 144.2 181.714 144.236 182.138 144.236C182.632 144.236 183.128 144.236 183.622 144.236C190.406 144.306 196.06 143.636 200.582 142.222C205.104 140.738 208.144 135.58 209.698 126.746C210.97 119.326 209.698 115.05 205.882 113.92C202.136 112.79 197.438 112.26 191.784 112.33C190.936 112.4 190.124 112.436 189.346 112.436C188.64 112.436 187.898 112.436 187.12 112.436L187.226 112.33" />
+                            </svg>
+                        </div>
+                        <div class="skill-name">PHP</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="defaultGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+                                        <stop offset="10%" stop-color="#e3e3e3" />
+                                        <stop offset="100%" stop-color="#3d3d3d" />
+                                    </linearGradient>
+                                    <linearGradient id="hoverGradient_css">
+                                        <stop offset="100%" stop-color="#0277BD" />
+                                    </linearGradient>
+                                    <rect id="defaultRect" width="256" height="256" rx="60" fill="url(#defaultGradient)" />
+                                    <rect id="hoverRect_css" width="256" height="256" rx="60" fill="url(#hoverGradient_css)" />
+                                </defs>
+                                <use href="#hoverRect_css" class="hover" />
+                                <use href="#defaultRect" class="default" />
+                                <path d="M53.7527 102.651L56.6155 134.593H128.096V102.651H53.7527Z" fill="#323330" />
+                                <path d="M128.095 38H127.985H48L50.9036 69.9423H128.095V38Z" fill="#323330" />
+                                <path d="M128.095 218.841V185.608L127.955 185.645L92.3813 176.04L90.1072 150.564H72.821H58.0425L62.5175 200.718L127.948 218.882L128.095 218.841Z" fill="#323330" />
+                                <path d="M167.318 134.593L163.61 176.019L127.985 185.635V218.866L193.468 200.718L193.948 195.321L201.454 111.229L202.233 102.651L208 38H127.985V69.9423H172.994L170.088 102.651H127.985V134.593H167.318Z" fill="#323330" />
+                            </svg>
+                        </div>
+                        <div class="skill-name">CSS</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256">
+                                <defs>
+                                    <linearGradient id="defaultGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+                                        <stop offset="10%" stop-color="#e3e3e3" />
+                                        <stop offset="100%" stop-color="#3d3d3d" />
+                                    </linearGradient>
+                                    <linearGradient id="hoverGradient_html">
+                                        <stop offset="100%" stop-color="#E14E1D" />
+                                    </linearGradient>
+                                    <rect id="defaultRect" width="256" height="256" rx="60" fill="url(#defaultGradient)" />
+                                    <rect id="hoverRect_html" width="256" height="256" rx="60" fill="url(#hoverGradient_html)" />
+                                </defs>
+                                <use href="#hoverRect_html" class="hover" />
+                                <use href="#defaultRect" class="default" />
+                                <path fill="#323330" d="M48 38L56.6098 134.593H167.32L163.605 176.023L127.959 185.661L92.38 176.037L90.0012 149.435H57.9389L62.5236 200.716L127.951 218.888L193.461 200.716L202.244 102.655H85.8241L82.901 69.9448H205.041H205.139L208 38H48Z" />
+                                <path fill="#323330" d="M128 38H48L56.6098 134.593H128V102.655H85.8241L82.901 69.9448H128V38Z" />
+                                <path fill="#323330" d="M128 185.647L127.959 185.661L92.38 176.037L90.0012 149.435H57.9388L62.5236 200.716L127.951 218.888L128 218.874V185.647Z" />
+                            </svg>
+                        </div>
+                        <div class="skill-name">HTML</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256">
+                                <defs>
+                                    <linearGradient id="defaultGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+                                        <stop offset="10%" stop-color="#e3e3e3" />
+                                        <stop offset="100%" stop-color="#3d3d3d" />
+                                    </linearGradient>
+                                    <linearGradient id="hoverGradient_python">
+                                        <stop offset="100%" stop-color="#FFE052" />
+                                    </linearGradient>
+                                    <rect id="defaultRect" width="256" height="256" rx="60" fill="url(#defaultGradient)" />
+                                    <rect id="hoverRect_python" width="256" height="256" rx="60" fill="url(#hoverGradient_python)" />
+                                </defs>
+                                <use href="#hoverRect_python" class="hover" />
+                                <use href="#defaultRect" class="default" />
+                                <path fill="#323330" d="M127.279 29C76.5066 29 79.6772 51.018 79.6772 51.018L79.7338 73.8284H128.185V80.6772H60.4893C60.4893 80.6772 28 76.9926 28 128.222C28 179.452 56.3573 177.636 56.3573 177.636H73.2812V153.863C73.2812 153.863 72.369 125.506 101.186 125.506H149.24C149.24 125.506 176.239 125.942 176.239 99.4123V55.5461C176.239 55.5461 180.338 29 127.279 29ZM100.563 44.339C105.384 44.339 109.28 48.2351 109.28 53.0556C109.28 57.8761 105.384 61.7723 100.563 61.7723C95.7426 61.7723 91.8465 57.8761 91.8465 53.0556C91.8465 48.2351 95.7426 44.339 100.563 44.339Z" />
+                                <path fill="#323330" d="M128.721 227.958C179.493 227.958 176.323 205.941 176.323 205.941L176.266 183.13H127.815V176.281H195.511C195.511 176.281 228 179.966 228 128.736C228 77.5062 199.643 79.323 199.643 79.323H182.719V103.096C182.719 103.096 183.631 131.453 154.814 131.453H106.76C106.76 131.453 79.7607 131.016 79.7607 157.546V201.412C79.7607 201.412 75.6615 227.958 128.721 227.958ZM155.437 212.619C150.616 212.619 146.72 208.723 146.72 203.903C146.72 199.082 150.616 195.186 155.437 195.186C160.257 195.186 164.154 199.082 164.154 203.903C164.154 208.723 160.257 212.619 155.437 212.619Z" />
+                            </svg>
+                        </div>
+                        <div class="skill-name">Python</div>
+                    </div>
+                </div>
+            </section>
+            <section class="projects" data-name="projects">
+                <div class="section-header">Projects</div>
+                <div class="project-list">
+                    <a class="project-item" href="https://winbows11.vercel.app/" target="_blank">
+                        <div class="project-item-open"></div>
+                        <div class="project-item-image" style="background-image: url(./images/winbows11.png);"></div>
+                        <div class="project-item-info">
+                            <div class="project-item-title">Winbows11</div>
+                            <div class="project-item-description">Winbows11 lets you experience Windows11 UI and animations on your web browser!</div>
+                        </div>
+                    </a>
+                    <a class="project-item" href="https://better-kshs.vercel.app/" target="_blank">
+                        <div class="project-item-open"></div>
+                        <div class="project-item-image" style="background-image: url(./images/better-kshs.png);"></div>
+                        <div class="project-item-info">
+                            <div class="project-item-title">Better KSHS</div>
+                            <div class="project-item-description">Enhancing the browsing experience of the KSHS official website.</div>
+                        </div>
+                    </a>
+                    <a class="project-item" href="https://siyu1017.github.io/countdown" target="_blank">
+                        <div class="project-item-open"></div>
+                        <div class="project-item-image" style="background-image: url(./images/countdown.png);"></div>
+                        <div class="project-item-info">
+                            <div class="project-item-title">2026 Countdown</div>
+                            <div class="project-item-description">A quiet countdown to 2026.</div>
+                        </div>
+                    </a>
+                    <a class="project-item" href="https://siyu1017.github.io/json-viewer" target="_blank">
+                        <div class="project-item-open"></div>
+                        <div class="project-item-image" style="background-image: url(./images/json-viewer.png);"></div>
+                        <div class="project-item-info">
+                            <div class="project-item-title">JSON Viewer</div>
+                            <div class="project-item-description">Lightweight web tool for visualizing JSON data in a clear, interactive tree view.</div>
+                        </div>
+                    </a>
+                    <a class="project-item" href="https://turtlejs.vercel.app/" target="_blank">
+                        <div class="project-item-open"></div>
+                        <div class="project-item-image" style="background-image: url(./images/turtlejs.png);"></div>
+                        <div class="project-item-info">
+                            <div class="project-item-title">turtle.js</div>
+                            <div class="project-item-description">A javaScript library for implementing turtle graphics in non-Python environments.</div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <footer class="contact" data-name="contact">
+                <div class="section-header">Contact</div>
+                <div class="contact-content">
+                    <div class="contact-title">Get in touch</div>
+                    <div class="contact-subtitle">
+                        <span>I’m interested in frontend-focused work and building practical web projects.</span>
+                        <span>If you have questions about my work or want to discuss an idea, feel free to reach out.</span>
+                    </div>
+                    <div class="contact-info">
+                        <a class="contact-info-item" href="mailto:siyu1017.dev@gmail.com" target="_blank">
+                            <div class="contact-info-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail">
+                                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                                </svg>
+                            </div>
+                        </a>
+                        <a class="contact-info-item" href="https://github.com/Siyu1017/" target="_blank">
+                            <div class="contact-info-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github">
+                                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                                </svg>
+                            </div>
+                        </a>
+                        <a class="contact-info-item" href="https://www.instagram.com/siyu1017.dev" target="_blank">
+                            <div class="contact-info-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram-icon lucide-instagram">
+                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <span class="copyright footer">
+                    (c) 2025 Siyu. Built with ❤️
+                </span>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        ; (() => {
+            var themes = [{
+                name: 'xmas-2024',
+                scripts: ['./themes/xmas-2024/theme.js'],
+                styles: ['./themes/xmas-2024/theme.css'],
+                available: [new Date('2025/12/01 00:00:00').getTime(), new Date('2026/01/31 23:59:59').getTime()]
+            }, {
+                name: '2025-countdown',
+                scripts: ['./themes/2025-countdown/theme.js'],
+                styles: ['./themes/2025-countdown/theme.css'],
+                available: [new Date('2024/12/01 00:00:00').getTime(), new Date('2024/12/31 23:59:59').getTime()]
+            }]
+
+            let now = Date.now();
+            let applied = 'default';
+
+            themes.forEach(theme => {
+                if (theme.available[0] <= now && now <= theme.available[1]) {
+                    applied = theme.name;
+                    theme.styles.forEach(url => {
+                        var link = document.createElement('link');
+                        link.rel = 'stylesheet';
+                        link.type = 'text/css';
+                        link.href = url;
+                        document.head.appendChild(link);
+                    })
+                    theme.scripts.forEach(url => {
+                        var script = document.createElement('script');
+                        script.src = url;
+                        document.body.appendChild(script);
+                    });
+                }
+            })
+
+            if (applied == 'default') {
+                // Default Theme
+                (() => {
+                    var canvas = document.createElement('canvas');
+                    var ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+                    canvas.className = 'theme-canvas';
+                    document.body.appendChild(canvas);
+
+                    function uniqueID() {
+                        var id = randomString(72);
+                        return id;
+                    }
+
+                    function randomString(length) {
+                        if (!length) return console.warn('Option Invalid');
+                        var characters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'm', 'n', 'p', 'Q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '2', '3', '4', '5', '6', '7', '8', '9'],
+                            str = '';
+                        for (let i = 0; i < length; i++) {
+                            str += characters[Math.floor(Math.random() * characters.length)];
+                        }
+                        return str;
+                    }
+
+                    function canvasClarifier(canvas, ctx, width, height) {
+                        const originalSize = {
+                            width: (width ? width : canvas.offsetWidth),
+                            height: (height ? height : canvas.offsetHeight)
+                        }
+                        var ratio = window.devicePixelRatio || 1;
+                        canvas.width = originalSize.width * ratio;
+                        canvas.height = originalSize.height * ratio;
+                        ctx.scale(ratio, ratio);
+                        if (originalSize.width != canvas.offsetWidth || originalSize.height != canvas.offsetHeight) {
+                            canvas.style.width = originalSize.width + 'px';
+                            canvas.style.height = originalSize.height + 'px';
+                        }
+                    }
+
+                    canvasClarifier(canvas, ctx, window.innerWidth, window.innerHeight);
+
+                    var numStars = Math.ceil(window.innerWidth * window.innerHeight / 1000);
+                    var radius = 1;
+                    var focalLength = 1500;
+                    var stars = [], star;
+                    var centerX, centerY;
+                    var pixelX, pixelY, pixelRadius;
+
+                    window.onresize = () => {
+                        numStars = Math.ceil(window.innerWidth * window.innerHeight / 1000);
+                    }
+
+                    initializeStars();
+
+                    function render() {
+                        canvasClarifier(canvas, ctx, window.innerWidth, window.innerHeight);
+                        updateStars();
+                        drawStars();
+                        requestAnimationFrame(render);
+                    }
+
+                    function initializeStars() {
+                        stars = [];
+                        for (i = 0; i < numStars; i++) {
+                            star = {
+                                x: Math.random() * canvas.offsetWidth - canvas.offsetWidth / 2,
+                                y: Math.random() * canvas.offsetHeight - canvas.offsetHeight / 2,
+                                z: Math.random() * focalLength,
+                                t: Date.now()
+                            };
+                            stars.push(star);
+                        }
+                    }
+
+                    function updateStars() {
+                        for (i = 0; i < (numStars > stars.length ? stars.length : numStars); i++) {
+                            star = stars[i];
+                            star.z--;
+
+                            if (star.z <= 0) {
+                                stars[i] = {
+                                    x: Math.random() * canvas.offsetWidth - canvas.offsetWidth / 2,
+                                    y: Math.random() * canvas.offsetHeight - canvas.offsetHeight / 2,
+                                    z: Math.random() * focalLength,
+                                    t: Date.now()
+                                };
+                            }
+                        }
+                    }
+
+                    function drawStars() {
+                        centerX = canvas.offsetWidth / 2;
+                        centerY = canvas.offsetHeight / 2;
+
+                        ctx.fillStyle = "rgb(17,17,17)";
+                        ctx.fillRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+
+                        for (i = 0; i < (numStars > stars.length ? stars.length : numStars); i++) {
+                            star = stars[i];
+
+                            pixelX = star.x * (focalLength / star.z);
+                            pixelX += centerX;
+                            pixelY = star.y * (focalLength / star.z);
+                            pixelY += centerY;
+                            pixelRadius = radius * (focalLength / star.z);
+
+                            ctx.save();
+                            ctx.beginPath();
+                            ctx.fillStyle = Date.now() - star.t < 200 ? `rgba(255,255,255,${(Date.now() - star.t) / 200 * .3})` : "rgba(255,255,255,.3)";
+                            ctx.arc(pixelX, pixelY, pixelRadius, 0, 2 * Math.PI);
+                            ctx.fill();
+                            ctx.restore();
+                        }
+                    }
+                    render();
+                })();
+            }
+        })();
+    </script>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
