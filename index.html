@@ -29,13 +29,14 @@
     <meta property="twitter:image" content="https://siyu1017.github.io/icons/original.png" />
 
     <script>
-        function updateScreenSize() {
-            document.querySelector(':root').style.setProperty('--screen-width', window.innerWidth + 'px');
-            document.querySelector(':root').style.setProperty('--screen-height', window.innerHeight + 'px');
-        }
-
-        window.addEventListener('resize', updateScreenSize);
-        window.addEventListener('load', updateScreenSize);
+        "autoResize" === true && (function () {
+            function updateScreenSize() {
+                document.querySelector(':root').style.setProperty('--screen-width', window.innerWidth + 'px');
+                document.querySelector(':root').style.setProperty('--screen-height', window.innerHeight + 'px');
+            }
+            window.addEventListener('resize', updateScreenSize);
+            window.addEventListener('load', updateScreenSize);
+        })();
     </script>
 </head>
 
