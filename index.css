@@ -180,7 +180,7 @@ body {
     background-image: radial-gradient(circle at top, var(--bg-color), transparent 50%);
 }
 
-.hero-atomsphere-glow {
+.hero-atmosphere-glow {
     --size: 100rem;
     --bg-color: rgb(195 223 255 / 16%);
     position: absolute;
